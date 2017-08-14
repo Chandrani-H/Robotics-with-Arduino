@@ -1,4 +1,4 @@
-
+//The wheeled bot detects obstacles and avoids it.
 //These are the pins that I used to connect the motors connected wheels of the chassis to the arduino
 //Motor Pins
 int leftup = 8;
@@ -86,7 +86,7 @@ unsigned long ping()
   return inches;
 }
 
-//
+//The loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond.
 void loop()
 {
 int x=0;
