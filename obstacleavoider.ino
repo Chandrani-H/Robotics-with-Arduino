@@ -1,3 +1,5 @@
+
+//These are the pins that I used to connect the motors connected wheels of the chassis to the arduino
 //Motor Pins
 int leftup = 8;
 int rightup = 5;
@@ -8,7 +10,7 @@ int rightdown = 6;
 #define SLOW 95
 #define OFF 0
 
-int sensor=13;
+int sensor=13; //Pin used for sensor that senses obstacles
 int echo=0;
 int inches=0;
 
