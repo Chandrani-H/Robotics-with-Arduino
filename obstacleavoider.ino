@@ -10,14 +10,14 @@ int rightdown = 6;
 #define SLOW 95
 #define OFF 0
 
-int sensor=13; //Pin used for sensor that senses obstacles
+int sensor=13; //Pin used for sensor that detects the obstacle
 int echo=0;
 int inches=0;
-
+//setup() function initializes and sets the initial values
 void setup() {
   Serial.begin(9600);
+  //The following pins are all used as OUTPUT PINS
   pinMode(sensor,OUTPUT);
-  
   pinMode(leftup,OUTPUT);
   pinMode(rightup,OUTPUT);
   pinMode(leftdown,OUTPUT);
@@ -25,7 +25,8 @@ void setup() {
  
 }
 
-void motion(int a)
+//This function is called in a loop
+void motion(int a) 
 {
   switch(a)
   {
@@ -85,6 +86,7 @@ unsigned long ping()
   return inches;
 }
 
+//
 void loop()
 {
 int x=0;
