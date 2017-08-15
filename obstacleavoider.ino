@@ -1,4 +1,5 @@
-//The wheeled bot detects obstacles and avoids it.
+//The wheeled bot moves forward until it detects an obstacle and avoids it by moving left.
+
 //These are the pins that I used to connect the motors connected wheels of the chassis to the arduino
 //Motor Pins
 int leftup = 8;
