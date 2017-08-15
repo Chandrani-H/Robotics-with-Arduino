@@ -32,7 +32,6 @@ void motion(int a)
   switch(a)
   {
     case 0: //STOP
-    //  Serial.println("HI!");
       analogWrite(leftup,FAST);
       analogWrite(rightup,FAST);
       analogWrite(leftdown,FAST);
@@ -77,13 +76,13 @@ unsigned long ping()
   pinMode(sensor,OUTPUT);
   digitalWrite(sensor,LOW);
   delayMicroseconds(2);
-  digitalWrite(sensor,HIGH);
+  digitalWrite(sensor,HIGH);	//sensor outputs HIGH
   delayMicroseconds(5);
   digitalWrite(sensor,LOW);
-  pinMode(sensor,INPUT);  //switch to input
-  digitalWrite(sensor,HIGH); //turn on pullup resistor
-  echo=pulseIn(sensor,HIGH);  //listen for echo
-  inches=(echo/58.138)*(.39); //convert to inches
+  pinMode(sensor,INPUT);  		//switching sensor MODE to INPUT
+  digitalWrite(sensor,HIGH); 	//turn on pullup resistor
+  echo=pulseIn(sensor,HIGH);  //listening for echo
+  inches=(echo/58.138)*(.39); //converting distance into inches
   return inches;
 }
 
@@ -92,14 +91,14 @@ void loop()
 {
 int x=0;
 x=ping();
-delay(250);//delay 1/4 seconds
-while (x<=10)
+delay(250);    //delay 1/4 seconds
+while (x<=10)  //If the distance between the bot and obstacle is <= 10 inches, it turns left
 {
   x=ping();
-  motion(4);
-  delay(50);
+  motion(4);   //turning left
+  delay(50);	//Delay to allow the bot to turn
 }
-motion(1);
+motion(1);		//If no obstacle, move forward
 
 }
 
