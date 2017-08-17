@@ -41,7 +41,6 @@ void motion(int a)
       analogWrite(rightup,FAST);
       analogWrite(leftdown,FAST);
       analogWrite(rightdown,FAST);
-      //Serial.println("HI2!");
       break;
     
     case 1: //FORWARD
