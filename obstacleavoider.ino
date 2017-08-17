@@ -73,12 +73,12 @@ void motion(int a)
 
 unsigned long ping()
 {
-  pinMode(sensor,OUTPUT);
-  digitalWrite(sensor,LOW);
-  delayMicroseconds(2);
+  pinMode(sensor,OUTPUT);		//sensor mode is OUTPUT
+  digitalWrite(sensor,LOW);	//sensor outputs LOW
+  delayMicroseconds(2);			//for 2 microseconds
   digitalWrite(sensor,HIGH);	//sensor outputs HIGH
-  delayMicroseconds(5);
-  digitalWrite(sensor,LOW);
+  delayMicroseconds(5);			//for 5 microseconds
+  digitalWrite(sensor,LOW);	//changing sensor output to LOW again
   pinMode(sensor,INPUT);  		//switching sensor MODE to INPUT
   digitalWrite(sensor,HIGH); 	//turn on pullup resistor
   echo=pulseIn(sensor,HIGH);  //listening for echo
@@ -90,7 +90,7 @@ unsigned long ping()
 void loop()
 {
 int x=0;
-x=ping();
+x=ping();		
 delay(250);    //delay 1/4 seconds
 while (x<=10)  //If the distance between the bot and obstacle is <= 10 inches, it turns left
 {
