@@ -1,22 +1,27 @@
-//The wheeled bot moves forward until it detects an obstacle and avoids it by moving left.
+//The wheeled bot moves forward until it detects an obstacle
+//using an ultrasonic sensor and avoids it by turning.
 
-//These are the pins that I used to connect the motors connected wheels of the chassis to the arduino
-//Motor Pins
+//These are the pins that I used to connect the motors
+//that were connected wheels of the chassis to the arduino.
+
 int leftup = 8;
 int rightup = 5;
 int leftdown = 7;
 int rightdown = 6;
 
+//defining the constant values for FAST SLOW and OFF used in motion()
 #define FAST 190
 #define SLOW 95
 #define OFF 0
 
-int sensor=13; //Pin used for sensor that detects the obstacle
+int sensor=13; 		//Pin used for sensor that detects the obstacle
 int echo=0;
 int inches=0;
+
 //setup() function initializes and sets the initial values
+
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600);	//opens serial port, sets baud rate to 9600 bps(bits per second)
   //The following pins are all used as OUTPUT PINS
   pinMode(sensor,OUTPUT);
   pinMode(leftup,OUTPUT);
@@ -90,15 +95,15 @@ unsigned long ping()
 void loop()
 {
 int x=0;
-x=ping();		
+x=ping();		//calling the ping() function to calculate the distance between bot and obstacle
 delay(250);    //delay 1/4 seconds
 while (x<=10)  //If the distance between the bot and obstacle is <= 10 inches, it turns left
 {
-  x=ping();
-  motion(4);   //turning left
+  x=ping();		////calling the ping() function to calculate the distance between bot and obstacle
+  motion(4);   //calling motion() to turn left
   delay(50);	//Delay to allow the bot to turn
 }
-motion(1);		//If no obstacle, move forward
+motion(1);		//If no obstacle, bot moves forward
 
 }
 
